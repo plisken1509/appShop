@@ -1,4 +1,6 @@
-@extends('layouts.app')
+<?php@extends('layouts.app')
+
+namespace C:\xampp\htdocs\proyectos\app-shop\appShop\resources\views;
 @section('body-class','landing-page sidebar-collapse')
 @section('content')
    <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/profile_city.jpg')}}')">
@@ -69,7 +71,7 @@
                   </div>
                   <h4 class="card-title">{{$producto->name}}
                     <br>
-                    <small class="card-description text-muted">Model</small>
+                    <small class="card-description text-muted">zWFZNMVXVDEV</small>
                   </h4>
                   <div class="card-body">
                     <p class="card-description">{{$producto->description}}</p>
