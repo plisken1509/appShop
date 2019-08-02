@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Bienvenido a App Shop')
 
 @section('body-class','landing-page sidebar-collapse')
 @section('content')
@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1 class="title">Bienvenidos A Su tienda Online</h1>
+          <h1 class="title">Bienvenidos a su tienda online</h1>
           <h4>Realiza pedidos en línea y te contactaremos para coordinar la entrega</h4>
           <br>
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
@@ -113,7 +113,7 @@
                 <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
               </div>
               <div class="row">
-                <div class="col-md-4 ml-auto mr-auto text-center">
+                <div class="col-md-4 ml-auto mr-auto tex-center">
                   <button class="btn btn-primary btn-raised">
                     Enviar Consulta
                   </button>
