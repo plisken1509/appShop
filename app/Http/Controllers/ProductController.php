@@ -9,8 +9,12 @@ class ProductController extends Controller
     
     public function index()
     {
-		$productos = Product::paginate(15);
-        return view('admin.products.index')->with(compact('productos'));//listado
+		/*$productos = Product::paginate(15);
+        return view('admin.products.index')->with(compact('productos'));//listado*/
+
+        $productos = Product::where("activo", "SI")->paginate(15);
+        
+        return view('admin.products.index')->with(compact('productos'));
         
     }
     public function create()
@@ -25,6 +29,7 @@ class ProductController extends Controller
         $producto->description=$request->input('description');
         $producto->price=$request->input('price');
         $producto->long_description=$request->input('long_description');
+        $producto->activo=$request->input('activo');
         $producto->save();
         return redirect('/admin/productos');
     }
@@ -45,8 +50,10 @@ class ProductController extends Controller
     }
      public function destroy($id)
     {
-        $producto = Product::find($id);
+        /*$producto = Product::find($id);
         $producto->delete();   
+        return back();*/
+        $producto = Product::where('id', $id)->update(["activo" => 'NO']);
         return back();
     }
 }

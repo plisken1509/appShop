@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->float('price');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id', 'fk_category_products')->references('id')->on('categories')->onDelete('restrict')->onUpdate('restrict');
+             $table->enum('activo', ['SI', 'NO']);
             $table->timestamps();
         });
     }

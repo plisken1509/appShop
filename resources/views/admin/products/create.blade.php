@@ -25,6 +25,29 @@
                 </div>
               </div>
             </div> 
+
+
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="activo" value="SI" checked="true">
+                    SI
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="activo" value="NO">
+                    NO
+                  </label>
+                </div>
+
+
+
+
+
+
+
+
+
                 <div class="form-group label-floating">
                   <label class="control-label">Descripcion corta del producto</label>
                   <input type="text" class="form-control" name="description">
