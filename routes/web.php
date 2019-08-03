@@ -25,3 +25,5 @@ Route::post('/admin/productos', 'ProductController@store');//registrar en la bas
 //Modificar
 Route::get('/admin/productos/{id}/editar', 'ProductController@edit'); //abrir el formulario de edicion de productos
 Route::post('/admin/productos/{id}/editar', 'ProductController@update');//actualizar el producto
+//eliminar
+Route::delete('/admin/productos/{id}', 'ProductController@destroy');//actualizar el producto

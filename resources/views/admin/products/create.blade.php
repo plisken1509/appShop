@@ -21,7 +21,7 @@
               <div class="col-sm-6">
                 <div class="form-group label-floating">
                   <label class="control-label">Precio del producto</label>
-                  <input type="number" class="form-control" name="price">
+                  <input type="number" step="0.01" class="form-control" name="price">
                 </div>
               </div>
             </div> 

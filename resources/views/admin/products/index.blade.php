@@ -37,9 +37,13 @@
                         <a href="{{url('/admin/productos/'.$producto->id.'/editar')}}" rel="tooltip" title="Editar Producto" class="btn btn-primary btn-simple btn-link btn-success btn-xs{{-- btn btn-success btn-simple btn-xs --}}">
                           <i class="fa fa-edit"></i>
                         </a>
-                        <button type="button" rel="tooltip" title="Eliminar" class="btn btn-primary btn-link btn-danger btn-xs{{-- btn btn-danger btn-simple btn-xs --}}">
-                          <i class="fa fa-times"></i>
-                        </button>
+                        <form method="post" action="{{url('/admin/productos/'.$producto->id)}}">
+                              @csrf
+                               @method('DELETE')
+                              <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-primary btn-link btn-danger btn-xs{{-- btn btn-danger btn-simple btn-xs --}}">
+                                <i class="fa fa-times"></i>
+                              </button>
+                        </form>
                       </td>
                     </tr>
                 @endforeach

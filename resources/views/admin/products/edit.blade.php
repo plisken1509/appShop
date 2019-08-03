@@ -8,29 +8,30 @@
 <div class="main main-raised">
   <div class="container">
     <div class="section">
-      <h2 class="title  text-center" >Registrar nuevos productos</h2>
-      <form method="POST" action="{{ url('/admin/productos') }}">
+      <h2 class="title  text-center" >Editar producto Seleccionado</h2>
+      <form method="POST" action="{{url('/admin/productos/'.$producto->id.'/editar')}}">
         @csrf
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group label-floating">
                   <label class="control-label">Nombre del producto</label>
-                  <input type="text" class="form-control" name="name">
+                  <input type="text" class="form-control" name="name" value="{{$producto->name}}">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group label-floating">
                   <label class="control-label">Precio del producto</label>
-                  <input type="number" class="form-control" name="price">
+                  <input type="number" step="0.01" class="form-control" name="price" value="{{$producto->price}}">
                 </div>
               </div>
             </div> 
                 <div class="form-group label-floating">
                   <label class="control-label">Descripcion corta del producto</label>
-                  <input type="text" class="form-control" name="description">
+                  <input type="text" class="form-control" name="description" value="{{$producto->description}}">
                 </div> 
-              <textarea class="form-control" placeholder="Descripción extensa del producto" rows="3" name="long_description"></textarea>
-              <button type="submit" class="btn btn-primary">Registrar Producto</button>
+              <textarea class="form-control" placeholder="Descripción extensa del producto" rows="3" name="long_description">{{$producto->long_description}}</textarea>
+              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+              <a href="{{url('/admin/productos')}}" class="btn btn-default">Cancelar</a>
       </form>
     </div>
   </div>

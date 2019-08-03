@@ -33,14 +33,20 @@ class ProductController extends Controller
         $producto = Product::find($id);
         return view('admin.products.edit')->with(compact('producto'));//formulario de registro      
     }
-    public function update()
+    public function update(Request $request, $id)
     {
-        $producto = new Product();
+        $producto = Product::find($id);
         $producto->name=$request->input('name');
         $producto->description=$request->input('description');
         $producto->price=$request->input('price');
         $producto->long_description=$request->input('long_description');
-        $producto->save();
+        $producto->save();//update
         return redirect('/admin/productos');      
+    }
+     public function destroy($id)
+    {
+        $producto = Product::find($id);
+        $producto->delete();   
+        return back();
     }
 }
