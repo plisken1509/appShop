@@ -30,7 +30,7 @@
       <div class="row" >
         @foreach($images as $image)
         <div class="card m-4" style="width: 18rem;">
-          <img class="card-img-top" src="{{ $image->url }}">
+          <img class="card-img-top" height="250" width="250" src="{{ $image->url }}">
           <div class="card-body">
             <h5 class="card-title">Nombre</h5>
             <button type="submit" class="btn btn-danger btn-round">Eliminar</button>
