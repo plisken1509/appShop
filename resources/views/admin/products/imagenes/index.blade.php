@@ -35,11 +35,20 @@
           <div class="card-body">
             <h5 class="card-title">Nombre</h5>
             <form action="" method="post">
-               @csrf
-                @method('DELETE')
-                <input type="hidden" name="image_id" value="{{$image->id}}">
-              <button type="submit" class="btn btn-danger btn-round">Eliminar</button>
-            </form>
+                 @csrf
+                 @method('DELETE')
+                 <input type="hidden" name="image_id" value="{{$image->id}}">
+                 <button type="submit" class="btn btn-danger btn-round">Eliminar</button>
+                 @if ($image->featured)
+                     <button type="button" class="btn btn-info btn-fab btn-fab-mini btn-round" rel="tooltip" title="Imagen destacada actualmente">
+                      <i class="material-icons">favorite</i>
+                    </button>
+                 @else
+                 <a href="{{url('/admin/products/'.$product->id.'/images/select/'.$image->id)}}" class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                  <i class="material-icons">favorite</i>
+                </a>
+                @endif
+          </form>
             
           </div>
         </div>
