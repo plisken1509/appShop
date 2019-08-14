@@ -12,6 +12,7 @@
       <h2 class="title">Imagenes del Producto "{{$product->name}}"</h2>
       <form action="" method="post" enctype="multipart/form-data">
           @csrf
+
           <input type="file" name="photo" accept="image/png, image/jpeg" required>
           <button type="submit" class="btn btn-primary btn-round">Subir nueva imagen</button>
           <a href="{{url('/admin/productos') }}" class="btn btn-default btn-round">Volver al listado de productos</a>
@@ -33,7 +34,13 @@
           <img class="card-img-top" height="250" width="250" src="{{ $image->url }}">
           <div class="card-body">
             <h5 class="card-title">Nombre</h5>
-            <button type="submit" class="btn btn-danger btn-round">Eliminar</button>
+            <form action="" method="post">
+               @csrf
+                @method('DELETE')
+                <input type="hidden" name="image_id" value="{{$image->id}}">
+              <button type="submit" class="btn btn-danger btn-round">Eliminar</button>
+            </form>
+            
           </div>
         </div>
         @endforeach
