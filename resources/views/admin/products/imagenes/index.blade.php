@@ -44,7 +44,7 @@
                       <i class="material-icons">favorite</i>
                     </button>
                  @else
-                 <a href="{{url('/admin/products/'.$product->id.'/images/select/'.$image->id)}}" class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                 <a href="{{url('/admin/productos/'.$product->id.'/images/select/'.$image->id)}}" class="btn btn-primary btn-fab btn-fab-mini btn-round">
                   <i class="material-icons">favorite</i>
                 </a>
                 @endif

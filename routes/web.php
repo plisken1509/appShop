@@ -18,7 +18,9 @@ Route::get('/', 'TestController@welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
+Route::get('/productos/{id}', 'ProductController@show');//controlador sin autenticacion
+
+Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function () {
     //crear 
 		Route::get('/productos', 'ProductController@index'); //mostrar el listado de productos
 		Route::get('/productos/crear', 'ProductController@create'); //abrir el formulario de creación de productos
@@ -29,10 +31,10 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
 		//eliminar
 		Route::delete('/productos/{id}', 'ProductController@destroy');//actualizar el producto
 		//imagenes 
-		Route::get('/products/{id}/images', 'ImageController@index'); // listado
-		Route::post('/products/{id}/images', 'ImageController@store'); // registrar
-		Route::delete('/products/{id}/images', 'ImageController@destroy'); // form eliminar	
+		Route::get('/productos/{id}/images', 'ImageController@index'); // listado
+		Route::post('/productos/{id}/images', 'ImageController@store'); // registrar
+		Route::delete('/productos/{id}/images', 'ImageController@destroy'); // form eliminar	
 
-		Route::get('/products/{id}/images/select/{image}', 'ImageController@select'); //destacar una imagen
+		Route::get('/productos/{id}/images/select/{image}', 'ImageController@select'); //destacar una imagen
 
 });

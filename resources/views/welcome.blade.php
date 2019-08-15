@@ -2,6 +2,24 @@
 @section('title', 'Bienvenido a App Shop')
 
 @section('body-class','landing-page sidebar-collapse')
+@section('styles')
+  <style>
+      .team .row .col-md-4{
+        margin-bottom: 5em;
+      }
+      .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+  </style>
+@endsection
 @section('content')
    <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/profile_city.jpg')}}')">
     <div class="container">
@@ -67,24 +85,22 @@
               <div class="team-player">
                 <div class="card card-plain">
                   <div class="col-md-6 ml-auto mr-auto">
-                    <img src="{{$producto->featured_image_url}}" height="150" width="150" class="img-raised rounded-circle img-fluid">
+                    <img src="{{$producto->featured_image_url}}" class="img-raised rounded-circle img-fluid" style="max-width: 200px; max-height: 200px">
                   </div>
-                  <h4 class="card-title">{{$producto->name}}
+                  <h4 class="card-title"><a href="{{url('/productos/'.$producto->id)}}">{{$producto->name}}</a>
                     <br>
                     <small class="card-description text-muted">{{$producto->category->name}}</small>
                   </h4>
                   <div class="card-body">
                     <p class="card-description">{{$producto->description}}</p>
                   </div>
-                  <div class="card-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                  </div>
                 </div>
               </div>
             </div>
           @endforeach  
+          </div>
+          <div class="text-center">
+            {{$productos->links()}}
           </div>
         </div>
       </div>

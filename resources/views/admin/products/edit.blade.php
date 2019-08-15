@@ -41,7 +41,7 @@
               <textarea class="form-control" placeholder="Descripción extensa del producto" rows="3" name="long_description">{{old('long_description',$producto->long_description)}}</textarea>
               <div class="radio">
                   <label>
-                    <input type="radio" name="activo" value="NO" {{  ($producto->activo == "SI") ? 'checked' : '' }} checked="true">
+                    <input type="radio" name="activo" value="SI" {{  ($producto->activo == "SI") ? 'checked' : '' }} checked="true">
                     SI
                   </label>
                 </div>

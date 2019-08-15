@@ -42,7 +42,7 @@
                   <a href="{{url('/admin/productos/'.$producto->id.'/editar')}}" rel="tooltip" title="Editar Producto" class="btn btn-primary btn-simple btn-link btn-success btn-xs{{-- btn btn-success btn-simple btn-xs --}}">
                     <i class="fa fa-edit"></i>
                   </a>
-                  <a href="{{url('/admin/products/'.$producto->id.'/images')}}" rel="tooltip" title="Imagenes del producto" class="btn btn-warning btn-simple btn-link btn-info btn-xs{{-- btn btn-success btn-simple btn-xs --}}">
+                  <a href="{{url('/admin/productos/'.$producto->id.'/images')}}" rel="tooltip" title="Imagenes del producto" class="btn btn-warning btn-simple btn-link btn-info btn-xs{{-- btn btn-success btn-simple btn-xs --}}">
                     <i class="fa fa-image"></i>
                   </a>
                   <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-primary btn-link btn-danger btn-xs{{-- btn btn-danger btn-simple btn-xs --}}">

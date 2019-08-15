@@ -17,6 +17,7 @@
 <link href="{{asset('/css/material-kit.css?v=2.0.5')}}" rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="{{asset('/css/demo.css')}}"/>
+@yield('styles')
 </head>
 
 <body class="@yield('body-class')">
