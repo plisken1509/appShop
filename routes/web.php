@@ -19,7 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/productos/{id}', 'ProductController@show');//controlador sin autenticacion
-
+Route::post('/cart', 'CartDetailController@store');
+//Autenticado
 Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function () {
     //crear 
 		Route::get('/productos', 'ProductController@index'); //mostrar el listado de productos

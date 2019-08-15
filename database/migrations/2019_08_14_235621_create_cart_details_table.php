@@ -21,7 +21,7 @@ class CreateCartDetailsTable extends Migration
             $table->unsignedBigInteger('product_id')->unsigned();
             $table->foreign('product_id', 'fk_cartsdetails_products')->references('id')->on('products')->onDelete('restrict')->onUpdate('restrict');
             $table->integer('quantity');
-            $table->integer('discount');//en porcentaje
+            $table->integer('discount')->default(0);//en porcentaje
             $table->timestamps();
         });
     }
