@@ -20,6 +20,10 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+     'sendgrid' => [
+        'api_key' => env('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'),
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
