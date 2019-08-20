@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/productos/{id}', 'ProductController@show');//controlador sin autenticacion
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
+
+Route::post('/order', 'CartController@update');
 //Autenticado
 Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function () {
     //crear 
