@@ -36,7 +36,7 @@
                 <form method="post" action="{{url('/admin/productos/'.$producto->id)}}">
                   @csrf
                   @method('DELETE')
-                  <a href="{{url('/admin/productos/'.$producto->id.'/editar')}}" rel="tooltip" title="Ver Producto" class="btn btn-primary btn-simple btn-link btn-info btn-xs{{-- btn btn-success btn-simple btn-xs --}}">
+                  <a href="{{url('/productos/'.$producto->id)}}" target="_blank" rel="tooltip" title="Ver Producto" class="btn btn-primary btn-simple btn-link btn-info btn-xs{{-- btn btn-success btn-simple btn-xs --}}">
                     <i class="fa fa-info"></i>
                   </a>
                   <a href="{{url('/admin/productos/'.$producto->id.'/editar')}}" rel="tooltip" title="Editar Producto" class="btn btn-primary btn-simple btn-link btn-success btn-xs{{-- btn btn-success btn-simple btn-xs --}}">

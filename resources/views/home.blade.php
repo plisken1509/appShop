@@ -56,8 +56,6 @@
         <td class="text-center">{{$detail->quantity}}</td>
         <td class="text-center">$ {{$detail->quantity * $detail->product->price}}</td>
         <td class="td-actions text-center">
-
-
           <form method="post" action="{{url('/cart')}}">
             @csrf
             @method('DELETE')
@@ -77,7 +75,6 @@
 </div>
 </div>
 </div>
-
 @endsection
 
 
