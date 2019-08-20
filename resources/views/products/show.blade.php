@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'App Shop | Dashboard')
+@section('title', 'App Shop | Producto')
 
 @section('body-class','profile-page sidebar-collapse')
 @section('content')
@@ -20,6 +20,11 @@
               <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
               <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
             </div>
+            @if (session('notification'))
+                <div class="alert alert-success" role="alert">
+                  {{ session('notification') }}
+                </div>
+            @endif
           </div>
         </div>
       </div>
