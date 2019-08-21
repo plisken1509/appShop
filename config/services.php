@@ -21,7 +21,7 @@ return [
     ],
 
      'sendgrid' => [
-        'api_key' => env('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'),
+        'api_key' => env('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'),
     ],
 
     'postmark' => [

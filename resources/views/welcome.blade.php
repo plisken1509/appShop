@@ -109,29 +109,42 @@
           <div class="col-md-8 ml-auto mr-auto">
             <h2 class="text-center title">¿Aún no te has registrado</h2>
             <h4 class="text-center description">Regístrate ingresando tus datos básicos, y podrás realizar tus pedidos a través de nuestro carrito de compras. Si aún no te decides, de todas formas, con tu cuenta de usuario podrás hacer todas tus consultas sin compromiso</h4>
-            <form class="contact-form">
+            <form class="contact-form" method="post" action="">
+              @csrf
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Nombre</label>
-                    <input type="email" class="form-control">
+                    <input name="name" class="form-control" value="{{old('name')}}">
+                    {!!$errors->first('name','<small>:message</small><br>')!!}<br>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Correo electrónico</label>
-                    <input type="email" class="form-control">
+                    <input type="text" name="email" class="form-control" value="{{old('email')}}">
+                    {!!$errors->first('email','<small>:message</small><br>')!!}<br>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Asunto...</label>
+                    <input name="subject" class="form-control" value="{{old('subject')}}">
+                    {!!$errors->first('email','<small>:message</small><br>')!!}
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label for="exampleMessage" class="bmd-label-floating">Tu mensaje</label>
-                <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+                <textarea name="content" class="form-control" rows="4">{{old('content')}}</textarea>
+                {!!$errors->first('content','<small>:message</small><br>')!!}<br>
               </div>
               <div class="row">
                 <div class="col-md-4 ml-auto mr-auto tex-center">
-                  <button class="btn btn-primary btn-raised">
-                    Enviar Consulta
+                  <button class="btn btn-primary btn-round">
+                    <i class="material-icons">done</i> Enviar Consulta
                   </button>
                 </div>
               </div>

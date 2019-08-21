@@ -14,5 +14,14 @@ class TestController extends Controller
 		/*$productos=Product::all();
 		return view('welcome')->with(compact('productos'));*/
 	}
+	public function store(){
+		request()->validate([
+			'name' => 'required',
+			'email' => 'required|email',
+			'subject' => 'required',	
+			'content' => 'required|min:10|max:200'
+		]);
+		return "Datos Validados";
+	}
 	
 }

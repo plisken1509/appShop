@@ -15,6 +15,7 @@
     return view ('welcome');
 });*/
 Route::get('/', 'TestController@welcome');
+Route::post('/', 'TestController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
