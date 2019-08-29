@@ -41,5 +41,14 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
 		Route::delete('/productos/{id}/images', 'ImageController@destroy'); // form eliminar	
 
 		Route::get('/productos/{id}/images/select/{image}', 'ImageController@select'); //destacar una imagen
+		//categorias CRUD
+		Route::get('/categories', 'CategoryController@index'); //mostrar el listado de categorias
+		Route::get('/categories/crear', 'CategoryController@create'); //abrir el formulario de creación de categorias
+		Route::post('/categories', 'CategoryController@store');//registrar en la base
+		//Modificar
+		Route::get('/categories/{category}/editar', 'CategoryController@edit'); //abrir el formulario de edicion de categorias
+		Route::post('/categories/{category}/editar', 'CategoryController@update');//actualizar el categorias
+		//eliminar
+		Route::delete('/categories/{id}', 'CategoryController@destroy');//actualizar el categorias
 
 });

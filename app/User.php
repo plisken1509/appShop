@@ -53,8 +53,4 @@ class User extends Authenticatable
 
         return $cart;
     }
-        public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new UserResetPassword($token));
-    }
 }
