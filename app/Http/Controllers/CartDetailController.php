@@ -9,6 +9,7 @@ class CartDetailController extends Controller
 {
 	public function store(Request $request)
 	{
+		
 		$cart = auth()->user()->cart;
 		$detail=$cart->details()->where('product_id', $request->product_id)->first();
 		if($detail){
