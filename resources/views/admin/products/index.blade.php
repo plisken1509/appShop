@@ -28,7 +28,7 @@
               <th class="text-center">{{$producto->id}}</th>
               <td>{{$producto->name}}</td>
               <td {{-- class="cold-md-8" --}}><h6>{{$producto->description}}</h6></td>
-              <td>{{$producto->category ? $producto->category->name : 'General'}}</td>
+              <td>{{$producto->category_name}}</td>
               <td class="text-right">&euro; {{$producto->price}}</td>
               <td class="td-actions text-right">
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
@@ -21,7 +22,8 @@ class ProductController extends Controller
      
     public function create()
     {
-        return view('admin.products.create');//formulario de registro		
+        $categories=Category::orderBy('name')->get();
+        return view('admin.products.create')->with(compact('categories'));//formulario de registro		
     }
     public function store(Request $request)//registrar nuevo producto
     {
@@ -46,14 +48,16 @@ class ProductController extends Controller
         $producto->description=$request->input('description');
         $producto->price=$request->input('price');
         $producto->long_description=$request->input('long_description');
+        $producto->category_id=$request->category_id;
         $producto->activo=$request->input('activo');
         $producto->save();
         return redirect('/admin/productos');
     }
     public function edit($id)
     {
+        $categories=Category::orderBy('name')->get();
         $producto = Product::find($id);
-        return view('admin.products.edit')->with(compact('producto'));//formulario de registro      
+        return view('admin.products.edit')->with(compact('producto','categories'));//formulario de registro      
     }
     public function update(Request $request, $id)
     {
@@ -76,6 +80,7 @@ class ProductController extends Controller
         $producto->description=$request->input('description');
         $producto->price=$request->input('price');
         $producto->long_description=$request->input('long_description');
+        $producto->category_id=$request->category_id;
         $producto->activo=$request->input('activo');
         $producto->save();//update
         return redirect('/admin/productos');      

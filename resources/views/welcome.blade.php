@@ -77,22 +77,22 @@
         </div>
       </div>
       <div class="section text-center">
-        <h2 class="title">Productos Disponibles</h2>
+        <h2 class="title">Visita nuestras categorías</h2>
         <div class="team">
           <div class="row">
-          @foreach($productos as $producto)
+          @foreach($categories as $category)
             <div class="col-md-4">
               <div class="team-player">
                 <div class="card card-plain">
                   <div class="col-md-6 ml-auto mr-auto">
-                    <img src="{{$producto->featured_image_url}}" class="img-raised rounded-circle img-fluid" style="max-width: 200px; max-height: 200px">
+                    <img src="{{$category->featured_image_url}}" alt="Imagen representativa a la categoría {{$category->name}}" class="img-raised rounded-circle img-fluid" style="max-width: 200px; max-height: 200px">
                   </div>
-                  <h4 class="card-title"><a href="{{url('/productos/'.$producto->id)}}">{{$producto->name}}</a>
+                  <h4 class="card-title"><a href="{{url('/categories/'.$category->id)}}">{{$category->name}}</a>
                     <br>
-                    <small class="card-description text-muted">{{$producto->category->name}}</small>
+                    <small class="card-description text-muted">{{$category->category_name}}</small>
                   </h4>
                   <div class="card-body">
-                    <p class="card-description">{{$producto->description}}</p>
+                    <p class="card-description">{{$category->description}}</p>
                   </div>
                 </div>
               </div>
@@ -100,7 +100,6 @@
           @endforeach  
           </div>
           <div class="text-center">
-            {{$productos->links()}}
           </div>
         </div>
       </div>

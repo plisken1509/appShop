@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/productos/{id}', 'ProductController@show');//controlador sin autenticacion
+Route::get('/categories/{category}', 'CategoryController@show');
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
 

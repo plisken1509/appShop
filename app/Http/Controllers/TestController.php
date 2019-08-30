@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Category;
 use App\Mail\MessageReceived;
 use App\Product;
 use Illuminate\Http\Request;
@@ -11,8 +12,8 @@ use Illuminate\Support\Facades\Mail;
 class TestController extends Controller
 {
 	public function welcome(){
-		$productos = Product::paginate(9);
-    	return view('welcome')->with(compact('productos'));
+		$categories = Category::where("activo", "SI")->has('products')->get();
+    	return view('welcome')->with(compact('categories'));
 		/*$productos=Product::all();
 		return view('welcome')->with(compact('productos'));*/
 	}
