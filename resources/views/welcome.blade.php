@@ -18,6 +18,45 @@
     display: flex;
     flex-direction: column;
   }
+  .tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+    .tt-hint {
+      color: #999
+    }
+
+    .tt-menu {    /* used to be tt-dropdown-menu in older versions */
+      width: 222px;
+      margin-top: 4px;
+      padding: 4px 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+      -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+      box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    }
+
+    .tt-suggestion {
+      padding: 3px 20px;
+      line-height: 24px;
+    }
+
+    .tt-suggestion.tt-cursor,.tt-suggestion:hover {
+      color: #fff;
+      background-color: #0097cf;
+
+    }
+
+    .tt-suggestion p {
+      margin: 0;
+    }
 </style>
 @endsection
 @section('content')
@@ -79,7 +118,7 @@
     <div class="section text-center">
       <h2 class="title">Visita nuestras categorías</h2>
       <form class="form-inline" method="get" action="{{url('/search')}}">
-        <input type="text" placeholder="¿Que producto buscas?" class="form-control" name="query">
+        <input type="text" placeholder="¿Que producto buscas?" class="form-control" name="query" id="search">
         <button class="btn btn-primary btn-fab btn-fab-mini btn-round" type="submit">
           <i class="material-icons">search</i>
       </button>
@@ -159,5 +198,26 @@
   </div>
 </div>
 </div>
+@endsection
+@section('scripts')
+<script src="{{asset('/js/plugins/typeahead.bundle.min.js')}}" type="text/javascript"></script>
+<script>
+  $(function (){
+        var products = new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.whitespace,
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+      // `states` is an array of state names defined in "The Basics"
+      prefetch: '{{url('products/json')}}'
 
+    });
+    $('#search').typeahead({
+          hint: true,
+          highlight: true,
+          minLength: 1
+    },{
+          name: 'products',
+          source: products
+    });
+  });
+</script>
 @endsection

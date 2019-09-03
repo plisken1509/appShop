@@ -18,10 +18,13 @@ Route::get('/', 'TestController@welcome');
 Route::post('/', 'TestController@store');
 Auth::routes();
 
+Route::get('/search', 'SearchController@show');
+Route::get('/products/json', 'SearchController@data');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/productos/{id}', 'ProductController@show');//controlador sin autenticacion
 Route::get('/categories/{category}', 'CategoryController@show');
-Route::get('/search', 'SearchController@show');
+
 Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/cart', 'CartDetailController@store');
