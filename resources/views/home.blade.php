@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'App Shop | Dashboard')
+@section('title', config('app.name'). ' | Dashboard')
 
 @section('body-class','profile-page sidebar-collapse')
 @section('content')

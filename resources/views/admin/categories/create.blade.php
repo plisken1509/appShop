@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Crear Categorias')
+@section('title', config('app.name'). ' | Crear Categorias')
 
 @section('body-class','profile-page sidebar-collapse')
 @section('content')

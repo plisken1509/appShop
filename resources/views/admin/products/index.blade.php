@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Listado de productos')
+@section('title', config('app.name'). ' | Listado de productos')
 
 @section('body-class','profile-page sidebar-collapse')
 @section('content')

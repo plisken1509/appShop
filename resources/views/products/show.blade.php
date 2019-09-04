@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'App Shop | Producto')
+@section('title', config('app.name'). ' | Producto')
 
 @section('body-class','profile-page sidebar-collapse')
 @section('content')

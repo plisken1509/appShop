@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="{{asset('/img/favicon.png')}}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    @yield('title','App Shop')
+    @yield('title',config('app.name'))
 </title>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 <!--     Fonts and icons     -->
@@ -25,7 +25,7 @@
           <div class="container">
             <div class="navbar-translate">
               <a class="navbar-brand" href="{{url('/')}}">
-              App Shop </a>
+              {{config('app.name')}} </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           
-                    <a class="dropdown-item" href="{{url('/home')}}">Dashboard</a>
+                    <a class="dropdown-item" href="{{url('/home')}}">Carrito de compras</a>
                 
                 @if(auth()->user()->admin)
                   <a class="dropdown-item" href="{{ url('admin/categories') }}">Gestionar Categorias</a>

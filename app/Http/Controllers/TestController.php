@@ -25,7 +25,8 @@ class TestController extends Controller
 			'content' => 'required|min:10|max:200'
 		]);
 		Mail::to('solorzanopablo81@gmail.com')->queue(new MessageReceived($message));
-		return "Mensaje enviado";
+		$notification="Mensaje enviado";
+		return back()->with(compact('notification'));
 	}
 	
 }

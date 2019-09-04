@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Bienvenido a App Shop')
+@section('title', 'Bienvenido a su '. config('app.name'))
 
 @section('body-class','landing-page sidebar-collapse')
 @section('styles')
@@ -7,14 +7,14 @@
   .team .row .col-md-4{
     margin-bottom: 5em;
   }
-  .row {
+  .team .row {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
     flex-wrap: wrap;
   }
-  .row > [class*='col-'] {
+  .team .row > [class*='col-'] {
     display: flex;
     flex-direction: column;
   }
@@ -64,7 +64,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="title">Bienvenidos a su tienda online</h1>
+        <h1 class="title">Bienvenidos a su {{config('app.name')}}</h1>
         <h4>Realiza pedidos en línea y te contactaremos para coordinar la entrega</h4>
         <br>
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
@@ -153,6 +153,11 @@
       <div class="col-md-8 ml-auto mr-auto">
         <h2 class="text-center title">¿Aún no te has registrado</h2>
         <h4 class="text-center description">Regístrate ingresando tus datos básicos, y podrás realizar tus pedidos a través de nuestro carrito de compras. Si aún no te decides, de todas formas, con tu cuenta de usuario podrás hacer todas tus consultas sin compromiso</h4>
+        @if (session('notification'))
+                <div class="alert alert-success" role="alert">
+                  {{ session('notification') }}
+                </div>
+            @endif
         <form class="contact-form" method="post" action="">
           @csrf
           <div class="row">
