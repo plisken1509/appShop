@@ -141,10 +141,10 @@ dfn {
   font-style: italic;
 }
 
-b,
+/*b,
 strong {
   font-weight: bolder;
-}
+}*/
 
 small {
   font-size: 80%;
@@ -545,10 +545,10 @@ dfn {
   font-style: italic;
 }
 
-b,
+/*b,
 strong {
   font-weight: bolder;
-}
+}*/
 
 small {
   font-size: 80%;
