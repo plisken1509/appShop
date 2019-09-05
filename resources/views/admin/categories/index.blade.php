@@ -18,6 +18,7 @@
              <th class="text-center" WIDTH="100" HEIGHT="100">#</th>
              <th WIDTH="200" HEIGHT="50">Nombre</th>
              <th WIDTH="400" {{-- HEIGHT="450" --}}>Descripcion</th>
+             <th>Imagen</th>
              <th class="text-center">Opciones</th>
            </thead>
            <tbody>
@@ -26,6 +27,7 @@
               <th class="text-center">{{$categoria->id}}</th>
               <td>{{$categoria->name}}</td>
               <td><h6>{{$categoria->description}}</h6></td>
+              <td><img src="{{$categoria->featured_image_url}}" height="50"></td>
               <td class="td-actions text-right">
                 <form class="text-center" method="post" action="{{url('/admin/categories/'.$categoria->id)}}">
                   @csrf

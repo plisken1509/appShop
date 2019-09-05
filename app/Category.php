@@ -12,7 +12,12 @@ class Category extends Model
     	return $this->hasMany(Product::class);
     }
      public function getFeaturedImageUrlAttribute(){
-    	$featuredProduct=$this->products()->first();
-    	return $featuredProduct->featured_image_url;
+    	if($this->image)
+    		return '/images/categories/'.$this->image;
+    	//else
+    	$firstProduct=$this->products()->first();
+    	if ($firstProduct) 
+    		return $firstProduct->featured_image_url;
+    	return '/images/default.png';
     }
 }

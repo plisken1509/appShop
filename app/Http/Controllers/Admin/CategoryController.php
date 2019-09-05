@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use File;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -38,7 +39,21 @@ class CategoryController extends Controller
             'description'=>'required|max:250'
         ];
         $this->validate($request,$rules,$msg);
-        Category::create($request->all());//asignamiento masivo
+        $category=Category::create($request->only('name','description'));//asignamiento masivo
+        if($request->hasFile('image'))
+        {
+         $file=$request->file('image');
+         $path=public_path() . '/images/categories/';
+         $fileName = uniqid() .'-'. $file->getClientOriginalName();
+         $moved=$file->move($path, $fileName);
+
+       //update category
+            if($moved)
+            {
+              $category->image=$fileName;
+              $category->save();
+            }
+        }
         return redirect('/admin/categories');
     }
     public function edit(Category $category)
@@ -60,7 +75,24 @@ class CategoryController extends Controller
             'description'=>'required|max:250'
         ];
         $this->validate($request,$rules,$messages);
-        $category->update($request->all());//update
+        $category->update($request->only('name','description'));//update
+        if($request->hasFile('image'))
+        {
+         $file=$request->file('image');
+         $path=public_path() . '/images/categories/';
+         $fileName = uniqid() .'-'. $file->getClientOriginalName();
+         $moved=$file->move($path, $fileName);
+
+       //update category
+            if($moved)
+            {
+              $previousPath = $path. '' .$category->image;  
+              $category->image=$fileName;
+              $saved=$category->save();
+              if($saved)
+              File::delete($previousPath);
+            }
+        }
         return redirect('/admin/categories');      
     }
      public function destroy($id)
