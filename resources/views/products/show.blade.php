@@ -32,9 +32,15 @@
         <p>{{$product->long_description}}</p>
       </div>
       <div class="class text-center">
-        <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
-          <i class="material-icons">add</i> Añadir al carrito de compras
-        </button>
+        @if(auth()->check())
+            <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
+              <i class="material-icons">add</i> Añadir al carrito de compras
+            </button>
+        @else
+            <a href="{{url('/login?redirect_to='.url()->current())}}" class="btn btn-primary btn-round">
+              <i class="material-icons">add</i> Añadir al carrito de compras
+            </a>
+        @endif
       </div>
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
