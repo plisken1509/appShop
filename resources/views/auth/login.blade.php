@@ -28,10 +28,10 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
-                      <i class="material-icons">mail</i>
+                      <i class="material-icons">fingerprint</i>
                     </span>
                   </div>
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email..." value="{{ old('email') }}" required autocomplete="email" autofocus>
+                  <input id="username" type="text" class="form-control" name="username" placeholder="Username..." value="{{ old('username') }}" required autocomplete="username" autofocus>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">

@@ -1,6 +1,6 @@
 <footer class="footer footer-default">
   <div class="container">
-    <nav class="float-left">
+    <nav class="float-left ml-auto">
       <ul>
         <li>
           <a href="https://www.creative-tim.com">
